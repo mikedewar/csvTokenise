@@ -15,17 +15,19 @@ import (
 
 var fname = flag.String("fname", "", "input filename")
 var col = flag.Int("column", 0, "column to tokenise")
+var keyString = flag.String("key", "FF4359D8D580AA4F7F036D6F04FC6A94", "key for the FF1 algorithm")
+var tweakString = flag.String("tweak", "D8E7920AFA330A73", "tweak for the FF1 algorithm")
 
 // panic(err) is just used for example purposes.
 func main() {
 	flag.Parse()
 	// Key and tweak should be byte arrays. Put your key and tweak here.
 	// To make it easier for demo purposes, decode from a hex string here.
-	key, err := hex.DecodeString("FF4359D8D580AA4F7F036D6F04FC6A94")
+	key, err := hex.DecodeString(*keyString)
 	if err != nil {
 		panic(err)
 	}
-	tweak, err := hex.DecodeString("D8E7920AFA330A73")
+	tweak, err := hex.DecodeString(*tweakString)
 	if err != nil {
 		panic(err)
 	}
