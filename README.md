@@ -3,7 +3,7 @@ a quick binary for tokenising a column in a csv file
 
 ## Usage
 ```
-csvTokenise -column=1 -fname=test.csv
+csvTokenise -column=1 -fname=test.csv -key=FF4359D8D580AA4F7F036D6F04FC6A94 -tweak=D8E7920AFA330A73
 ```
 
 ## Installation
@@ -11,6 +11,21 @@ csvTokenise -column=1 -fname=test.csv
 ```
 go install
 ```
+
+## Help
+```
+$ ./csvTokenise --help
+Usage of ./csvTokenise:
+  -column int
+        column to tokenise
+  -fname string
+        input filename
+  -key string
+        key for the FF1 algorithm (default "FF4359D8D580AA4F7F036D6F04FC6A94")
+  -tweak string
+        tweak for the FF1 algorithm (default "D8E7920AFA330A73")
+```
+
 
 ## Example
 ```
@@ -25,3 +40,9 @@ def456,nw8 49hm9
 ## The Hard Stuff
 
 Uses the FF1 format-preserving encryption algorithm, implemented by capitlaone: https://github.com/capitalone/fpe
+
+## Limitations
+
+* converts everything to lowercase
+* tokens are all alphanumeric (radix 36)
+* you shouldn't use the default key or tweak

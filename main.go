@@ -53,7 +53,7 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		original := strings.Split(record[*col], " ")
+		original := strings.Split(strings.ToLower(record[*col]), " ")
 		tokenised := make([]string, len(original))
 
 		for i, word := range original {
