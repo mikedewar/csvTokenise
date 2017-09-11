@@ -1,5 +1,5 @@
 # csvTokenise
-a quick binary for tokenising a column in a csv file
+a quick command line program for tokenising a column in a csv file
 
 ## Usage
 ```
