@@ -38,9 +38,16 @@ Usage of ./csvTokenise:
 $ cat test.csv
 abc123, mike dewar
 def456, jen smith
-$ csvTokenise -column=1 -fname=test.csv
+xyz890, Bobby Fingers
+111222, Jen Smith
+aaabbb, Jen Fitzroy
+
+$ ./csvTokenise -column=1 -fname=test.csv
 abc123,8mfa 5b7a6
 def456,nw8 49hm9
+xyz890,66n88 7xsje5
+111222,nw8 49hm9
+aaabbb,nw8 nband0p
 ```
 
 ## The Hard Stuff
