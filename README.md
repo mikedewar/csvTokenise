@@ -11,6 +11,7 @@ csvTokenise -column=1 -fname=test.csv -key=FF4359D8D580AA4F7F036D6F04FC6A94 -twe
 * converts everything to lowercase
 * tokens are all alphanumeric (radix 36)
 * you shouldn't use the default key or tweak
+* will probably fail unhelpfully if you have non ASCII in your csv file
 
 ## Installation
 
