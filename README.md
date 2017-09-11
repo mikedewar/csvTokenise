@@ -6,6 +6,12 @@ a quick binary for tokenising a column in a csv file
 csvTokenise -column=1 -fname=test.csv -key=FF4359D8D580AA4F7F036D6F04FC6A94 -tweak=D8E7920AFA330A73
 ```
 
+## Limitations
+
+* converts everything to lowercase
+* tokens are all alphanumeric (radix 36)
+* you shouldn't use the default key or tweak
+
 ## Installation
 
 ```
@@ -41,8 +47,3 @@ def456,nw8 49hm9
 
 Uses the FF1 format-preserving encryption algorithm, implemented by capitlaone: https://github.com/capitalone/fpe
 
-## Limitations
-
-* converts everything to lowercase
-* tokens are all alphanumeric (radix 36)
-* you shouldn't use the default key or tweak
