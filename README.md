@@ -20,8 +20,8 @@ go install
 
 ## Help
 ```
-$ ./csvTokenise --help
-Usage of ./csvTokenise:
+$ csvTokenise --help
+Usage of csvTokenise:
   -column int
         column to tokenise
   -fname string
@@ -42,7 +42,7 @@ xyz890, Bobby Fingers
 111222, Jen Smith
 aaabbb, Jen Fitzroy
 
-$ ./csvTokenise -column=1 -fname=test.csv
+$ csvTokenise -column=1 -fname=test.csv
 abc123,8mfa 5b7a6
 def456,nw8 49hm9
 xyz890,66n88 7xsje5
