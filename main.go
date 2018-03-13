@@ -21,8 +21,6 @@ var tweakString = flag.String("tweak", "D8E7920AFA330A73", "tweak for the FF1 al
 // panic(err) is just used for example purposes.
 func main() {
 	flag.Parse()
-	// Key and tweak should be byte arrays. Put your key and tweak here.
-	// To make it easier for demo purposes, decode from a hex string here.
 	key, err := hex.DecodeString(*keyString)
 	if err != nil {
 		panic(err)
@@ -33,8 +31,9 @@ func main() {
 	}
 
 	// Create a new FF1 cipher "object"
-	// 10 is the radix/base, and 8 is the tweak length.
-	FF1, err := ff1.NewCipher(36, 8, key, tweak)
+	// 62 is the radix/base, and 8 is the tweak length.
+	// 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+	FF1, err := ff1.NewCipher(62, 8, key, tweak)
 	if err != nil {
 		panic(err)
 	}
@@ -53,14 +52,17 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		original := strings.Split(strings.ToLower(record[*col]), " ")
-		tokenised := make([]string, len(original))
+		original := record[*col]
+		originalSplit := strings.Split(original, " ")
+		log.Println(originalSplit)
+		tokenised := make([]string, len(originalSplit))
 
-		for i, word := range original {
+		for i, word := range originalSplit {
 			// Call the encryption function on an example SSN
 			tokenised[i], err = FF1.Encrypt(word)
 			if err != nil {
 				log.Println("failed to encrypt")
+				log.Println(word)
 				panic(err)
 			}
 		}
